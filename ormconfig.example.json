@@ -4,5 +4,9 @@
     "port": "",
     "username": "",
     "password": "",
-    "database": ""
+    "database": "",
+    "migrations": ["./src/shared/typeorm/database/migrations/*.ts"],
+    "cli": {
+        "migrationsDir": "./src/shared/typeorm/database/migrations"
+    }
 }
