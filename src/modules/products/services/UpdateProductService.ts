@@ -27,13 +27,9 @@ export default class UpdateProductService {
       throw new AppError('Já existe um produto com este nome.')
     }
 
-    // product.name = name
-    // product.price = price
-    // product.quantity = quantity
-    
-    // await productRepository.save(product)
-
     productRepository.merge(product, { name, price, quantity })
+
+    await productRepository.save(product)
 
     return product;
   }
