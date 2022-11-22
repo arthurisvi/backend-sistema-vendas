@@ -7,7 +7,7 @@ import DeleteProductService from "../services/DeleteProductService";
 
 export default class ProductsController {
 
-  public async index(response: Response): Promise<Response> {
+  public async index(request: Request, response: Response): Promise<Response> {
     const listProducts = new ListProductService();
 
     const products = await listProducts.execute();
