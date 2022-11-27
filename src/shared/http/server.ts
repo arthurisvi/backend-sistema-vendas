@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import 'dotenv/config';
 import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import { errors } from 'celebrate';
@@ -31,4 +32,4 @@ app.use((error: Error, request: Request, response: Response, next: NextFunction)
 
 } );
 
-app.listen(3333, () => console.log('Server is running!'));
+app.listen(process.env.SERVER_PORT, () => console.log('Server is running!'));
