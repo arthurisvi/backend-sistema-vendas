@@ -8,6 +8,7 @@ Aplicação para gestão de vendas com funcionalidades para criação de cadastr
 * NodeJS
 * Express
 * TypeScript
+* Estratégia de cacheamento com Redis
 * PostgreSQL
 * Docker
 * Celebrate
