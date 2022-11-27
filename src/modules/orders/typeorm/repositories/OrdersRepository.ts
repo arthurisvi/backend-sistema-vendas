@@ -18,7 +18,7 @@ export default class OrdersRepository extends Repository<Order> {
 
   public async findById(id: string): Promise<Order | undefined> {
     const order = await this.findOne(id, {
-      relations: ['order_products', 'customer']
+      relations: ['orderProducts', 'customer']
     });
 
     return order;
