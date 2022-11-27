@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import LoginService from '../services/LoginService';
-
+import { instanceToInstance } from 'class-transformer';
 export default class AuthController{
 
   public async create(request: Request, response: Response): Promise<Response>{
@@ -10,7 +10,7 @@ export default class AuthController{
 
     const session = await loginService.execute({ email, password })
 
-    return response.json(session)
+    return response.json(instanceToInstance(session))
   }
 
 }
