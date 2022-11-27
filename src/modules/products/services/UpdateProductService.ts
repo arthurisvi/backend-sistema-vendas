@@ -2,6 +2,7 @@ import { getCustomRepository } from "typeorm"
 import { ProductRepository } from "../typeorm/repositories/ProductsRepository";
 import Product from "@modules/products/typeorm/entities/Product";
 import AppError from "@shared/errors/AppError";
+import RedisCache from "@shared/cache/RedisCache"
 
 interface IRequest {
   id: string;
@@ -26,6 +27,10 @@ export default class UpdateProductService {
     if (productExists && name !== product.name) {
       throw new AppError('Já existe um produto com este nome.')
     }
+
+    const redisCache = new RedisCache()
+
+    await redisCache.invalidate('PRODUCT-LIST')
 
     productRepository.merge(product, { name, price, quantity })
 
