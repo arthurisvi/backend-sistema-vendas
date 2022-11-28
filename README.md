@@ -18,6 +18,7 @@ Aplicação para gestão de vendas com funcionalidades para criação de cadastr
 * Classe de tratamento de erros 
 * Service, Controller e Repository
 * Middlewares
+* Bloqueio de muitas requisições por segundo
 * Autenticação com token de acesso (JWT)
 * TypeORM (migrations, relationships)
 
@@ -33,6 +34,11 @@ $ npm install
 ```
 * Agora, modifique as credenciais do seu banco de dados no arquivo ormconfig.example.json
 * Altere o nome do arquivo 'ormconfig.example.json' para 'ormconfig.json
+
+* Configure as variáveis de ambiente no .env.example
+APP_SECRET refere-se a uma secret criada por você para a criação do token JWT
+REDIS refere-se as configurações do servidor Redis da sua máquina
+* Altere o nome do arquivo de '.env.example' para '.env'
 
 Por último, execute o seguinte comando para rodar a aplicação em ambiente dev:
 ```
