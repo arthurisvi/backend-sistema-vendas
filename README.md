@@ -18,7 +18,7 @@ Aplicação para gestão de vendas com funcionalidades para criação de cadastr
 * Classe de tratamento de erros 
 * Service, Controller e Repository
 * Middlewares
-* Bloqueio de muitas requisições por segundo
+* Bloqueio de múltiplas requisições por segundo
 * Autenticação com token de acesso (JWT)
 * TypeORM (migrations, relationships)
 
