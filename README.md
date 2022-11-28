@@ -36,8 +36,10 @@ $ npm install
 * Altere o nome do arquivo 'ormconfig.example.json' para 'ormconfig.json
 
 * Configure as variáveis de ambiente no .env.example
-APP_SECRET refere-se a uma secret criada por você para a criação do token JWT
-REDIS refere-se as configurações do servidor Redis da sua máquina
+
+OBS: APP_SECRET refere-se a uma secret criada por você para a criação do token JWT
+
+REDIS refere-se as configurações do servidor Redis da sua máquina*
 * Altere o nome do arquivo de '.env.example' para '.env'
 
 Por último, execute o seguinte comando para rodar a aplicação em ambiente dev:
