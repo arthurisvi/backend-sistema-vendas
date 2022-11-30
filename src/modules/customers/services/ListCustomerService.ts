@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm"
-import CustomerRepository from "../typeorm/repositories/CustomersRepository";
-import Customer from "@modules/customers/typeorm/entities/Customer";
+import CustomerRepository from "../infra/typeorm/repositories/CustomersRepository";
+import Customer from "@modules/customers/infra/typeorm/entities/Customer";
 
 export default class ListCustomerService {
 

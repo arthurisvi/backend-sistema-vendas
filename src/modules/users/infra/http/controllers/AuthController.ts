@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import LoginService from '../services/LoginService';
+import LoginService from '../../../services/LoginService';
 import { instanceToInstance } from 'class-transformer';
 export default class AuthController{
 
