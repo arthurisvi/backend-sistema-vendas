@@ -19,7 +19,7 @@ export default class CreateCustomerService {
       throw new AppError('Já existe um cliente cadastrado com esse email.')
     }
 
-    const customer: Customer = customerRepository.create({
+    const customer = await customerRepository.create({
       name,
       email,
     });
