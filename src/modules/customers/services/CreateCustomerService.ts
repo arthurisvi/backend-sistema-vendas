@@ -1,7 +1,6 @@
-import { getCustomRepository } from "typeorm"
-import CustomersRepository from "../infra/typeorm/repositories/CustomersRepository";
-import Customer from "@modules/customers/infra/typeorm/entities/Customer";
 import AppError from "@shared/errors/AppError";
+import { ICustomer } from "../domain/models/ICustomer";
+import { ICustomersRepository } from "../domain/repositories/ICustomersRepository";
 
 interface IRequest {
   name: string;
@@ -10,21 +9,22 @@ interface IRequest {
 
 export default class CreateCustomerService {
 
-  public async execute({ name, email }: IRequest): Promise<Customer> {
-    const customerRepository = getCustomRepository(CustomersRepository)
+  constructor(private customersRepository: ICustomersRepository) {
+    this.customersRepository = customersRepository;
+  }
 
-    const emailExists = await customerRepository.findByEmail(email)
+  public async execute({ name, email }: IRequest): Promise<ICustomer> {
+
+    const emailExists = await this.customersRepository.findByEmail(email)
 
     if (emailExists) {
       throw new AppError('Já existe um cliente cadastrado com esse email.')
     }
 
-    const customer = await customerRepository.create({
+    const customer = await this.customersRepository.create({
       name,
       email,
     });
-
-    await customerRepository.save(customer)
 
     return customer;
   }
