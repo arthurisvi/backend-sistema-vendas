@@ -1,4 +1,5 @@
 import AppError from "@shared/errors/AppError";
+import { inject, injectable } from "tsyringe";
 import { ICustomer } from "../domain/models/ICustomer";
 import { ICustomersRepository } from "../domain/repositories/ICustomersRepository";
 
@@ -7,11 +8,13 @@ interface IRequest {
   email: string;
 }
 
+@injectable()
 export default class CreateCustomerService {
 
-  constructor(private customersRepository: ICustomersRepository) {
-    this.customersRepository = customersRepository;
-  }
+  constructor(
+    @inject('CustomersRepository')
+    private customersRepository: ICustomersRepository
+  ) {}
 
   public async execute({ name, email }: IRequest): Promise<ICustomer> {
 
