@@ -24,6 +24,22 @@ export default class CustomersRepository implements ICustomersRepository {
     return this.ormRepository.save(customer);
   }
 
+  public async remove(customer: Customer): Promise<void> {
+    await this.ormRepository.remove(customer);
+  }
+
+  public async findAll(): Promise<Customer[]>{
+    const customers = await this.ormRepository.find();
+
+    return customers;
+  }
+
+  public async findOne(id: string): Promise<Customer | undefined> {
+    const customer = await this.ormRepository.findOne(id);
+
+    return customer;
+  }
+
   public async findByName(name: string): Promise<Customer | undefined> {
     const customer = await this.ormRepository.findOne({
       where: { name },

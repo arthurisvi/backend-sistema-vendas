@@ -1,13 +1,16 @@
-import { getCustomRepository } from "typeorm"
-import CustomerRepository from "../infra/typeorm/repositories/CustomersRepository";
 import Customer from "@modules/customers/infra/typeorm/entities/Customer";
+import { inject } from "tsyringe";
+import CustomersRepository from "../infra/typeorm/repositories/CustomersRepository";
 
 export default class ListCustomerService {
 
-  public async execute(): Promise<Customer[]> {
-    const customerRepository = getCustomRepository(CustomerRepository)
+  constructor(
+    @inject('CustomersRepository')
+    private customersRepository: CustomersRepository
+  ) { }
 
-    const customers = await customerRepository.find()
+  public async execute(): Promise<Customer[]> {
+    const customers = await this.customersRepository.findAll()
 
     return customers
   }
