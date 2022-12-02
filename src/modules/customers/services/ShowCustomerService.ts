@@ -1,20 +1,21 @@
-import CustomersRepository from "../infra/typeorm/repositories/CustomersRepository";
-import Customer from "@modules/customers/infra/typeorm/entities/Customer";
 import AppError from "@shared/errors/AppError";
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
+import { ICustomer } from "../domain/models/ICustomer";
+import { ICustomersRepository } from "../domain/repositories/ICustomersRepository";
 
 interface IRequest {
   id: string;
 }
 
+@injectable()
 export default class ShowCustomerService {
 
   constructor(
     @inject('CustomersRepository')
-    private customersRepository: CustomersRepository
+    private customersRepository: ICustomersRepository
   ) { }
 
-  public async execute({ id }: IRequest): Promise<Customer> {
+  public async execute({ id }: IRequest): Promise<ICustomer> {
     const customer = await this.customersRepository.findOne(id)
 
     if (!customer) {
