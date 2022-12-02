@@ -3,11 +3,17 @@ import CreateCustomerService from "../CreateCustomerService";
 import InMemoryCustomersRepository from "./repositories/InMemoryCustomersRepository";
 import AppError from '@shared/errors/AppError';
 
-describe('CreateCustomer', () => {
-  it('should be able to create a new customer', async () => {
-    const customersRepository = new InMemoryCustomersRepository();
-    const createCustomerService = new CreateCustomerService(customersRepository);
+let customersRepository: InMemoryCustomersRepository;
+let createCustomerService: CreateCustomerService;
 
+describe('CreateCustomer', () => {
+
+  beforeEach(() => {
+    customersRepository = new InMemoryCustomersRepository();
+    createCustomerService = new CreateCustomerService(customersRepository);
+  })
+
+  it('should be able to create a new customer', async () => {
     const customer = await createCustomerService.execute({
       name: 'Arthur Isvi',
       email: 'spfcarthur1@gmail.com'
@@ -17,9 +23,6 @@ describe('CreateCustomer', () => {
   })
 
   it('should be able to create a new customer', async () => {
-    const customersRepository = new InMemoryCustomersRepository();
-    const createCustomerService = new CreateCustomerService(customersRepository);
-
     await createCustomerService.execute({
       name: 'Arthur Isvi',
       email: 'spfcarthur1@gmail.com'
