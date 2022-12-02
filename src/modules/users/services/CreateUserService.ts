@@ -1,7 +1,7 @@
 import { getCustomRepository } from "typeorm"
 import { hash } from "bcryptjs"
 import UserRepository from "../infra/typeorm/repositories/UsersRepository";
-import User from "@modules/users/typeorm/entities/User";
+import User from "@modules/users/infra/typeorm/entities/User";
 import AppError from "@shared/errors/AppError";
 
 interface IRequest {
