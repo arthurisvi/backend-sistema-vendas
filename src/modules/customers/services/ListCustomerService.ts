@@ -10,7 +10,7 @@ export default class ListCustomerService {
     private customersRepository: ICustomersRepository
   ) { }
 
-  public async execute(): Promise<ICustomer[]> {
+  public async execute(): Promise<ICustomer[] | undefined> {
     const customers = await this.customersRepository.findAll()
 
     return customers

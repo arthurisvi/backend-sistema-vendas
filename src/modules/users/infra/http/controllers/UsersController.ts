@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import CreateUserService from "../../../services/CreateUserService";
 import ListUserService from "../../../services/ListUserService";
 import { instanceToInstance } from 'class-transformer';
+import { container } from "tsyringe";
 
 export default class UsersController {
 
@@ -16,7 +17,7 @@ export default class UsersController {
   public async store(request: Request, response: Response): Promise<Response> {
     const { name, email, password } = request.body;
 
-    const createUser = new CreateUserService();
+    const createUser = container.resolve(CreateUserService);
 
     const user = await createUser.execute({ name, email, password })
 
