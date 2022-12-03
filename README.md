@@ -28,6 +28,7 @@ Aplicação para gestão de vendas com funcionalidades para criação de cadastr
 * Middlewares
 * Bloqueio de múltiplas requisições por segundo
 * Autenticação com token de acesso (JWT)
+* Orquestração de container com docker-compose
 
 ## Como rodar a aplicação em desenvolvimento:
 * Clone o repositório e abra a pasta com o projeto
@@ -35,7 +36,7 @@ Aplicação para gestão de vendas com funcionalidades para criação de cadastr
 $ git clone https://github.com/arthurisvi/backend-sistema-vendas.git
 $ cd backend-sistemas-vendas
 ```
-* Renomeie o arquivo "ormconfing.example.json" para "ormconfig.json"
+* Renomeie o arquivo "ormconfig.example.json" para "ormconfig.json"
 * Altere o nome do arquivo ".env.example" para ".env"
 
 ## Caso utilize Docker
