@@ -5,23 +5,28 @@ Aplicação para gestão de vendas com funcionalidades para criação de cadastr
 
 ## Conhecimentos trabalhados:
 
+### Tecnologias
 * NodeJS
 * Express
 * TypeScript
-* Estratégia de cacheamento com Redis
+* TypeORM
+* Redis
 * PostgreSQL
 * Docker
-* Celebrate
-* Nodemailer
+* Jest Framework
+
+### Conceitos
 * API Restful
+* Design Patterns
+* Princípios SOLID
+* TDD
+* DDD
 * CORS
 * Classe de tratamento de erros 
 * Service, Controller e Repository
 * Middlewares
 * Bloqueio de múltiplas requisições por segundo
 * Autenticação com token de acesso (JWT)
-* TypeORM (migrations, relationships)
-
 
 ## Rodar a aplicação em desenvolvimento:
 
